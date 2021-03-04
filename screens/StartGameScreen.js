@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         paddingRight: 15
     },
     button: {
-        width: Dimensions.get('window').width /4
+        width: Dimensions.get('window').width / 4
     },
     input: {
         width: 80,
