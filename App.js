@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
@@ -22,10 +22,10 @@ export default function App() {
   const [dataLoaded, setDataLoaded] = useState(false);
 
   if (!dataLoaded) {
-    return <AppLoading 
-      startAsync={fetchFonts} 
-      onFinish={() => setDataLoaded(true)} 
-      onError={(err) => console.log(err)}/>;
+    return <AppLoading
+      startAsync={fetchFonts}
+      onFinish={() => setDataLoaded(true)}
+      onError={(err) => console.log(err)} />;
   }
 
   const configureNewGameHander = () => {
@@ -41,21 +41,20 @@ export default function App() {
     setGuessRounds(numOfRounds);
   };
 
-  let content = <StartGameScreen onStartGame={startGameHandler}/>;
+  let content = <StartGameScreen onStartGame={startGameHandler} />;
 
-  if (userNumber && guessRounds <=0 ) {
-    content = <GameScreen userChoice={userNumber} onGameOver={gameOverHandler}/>;
+  if (userNumber && guessRounds <= 0) {
+    content = <GameScreen userChoice={userNumber} onGameOver={gameOverHandler} />;
   } else if (guessRounds > 0) {
-    content = <GameOverScreen roundsNumber={guessRounds} userNumber={userNumber} onRestart={configureNewGameHander}/>
+    content = <GameOverScreen roundsNumber={guessRounds} userNumber={userNumber} onRestart={configureNewGameHander} />
   }
 
   return (
-    <View style={styles.screen}>
-      <Header title="Guess a Number"/>
+    <SafeAreaView style={styles.screen}>
+      <Header title="Guess a Number" />
       {content}
-      
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
