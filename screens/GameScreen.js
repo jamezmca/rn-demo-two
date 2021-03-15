@@ -1,5 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, Alert, ScrollView, FlatList, Dimensions } from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    Alert,
+    ScrollView,
+    FlatList,
+    Dimensions
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 //import { ScreenOrientation } from 'expo';
 
@@ -90,7 +98,10 @@ const GameScreen = props => {
                     {/*<ScrollView contentContainerStyle={styles.list}>
                     {pastGuesses.map((guess, index) => renderListItem(guess, pastGuesses.length-index))}
     </ScrollView>*/}
-                    <FlatList keyExtractor={(item) => item} data={pastGuesses} renderItem={renderListItem.bind(this, pastGuesses.length)} contentContainerStyle={styles.list} />
+                    <FlatList keyExtractor={(item) => item}
+                        data={pastGuesses}
+                        renderItem={renderListItem.bind(this, pastGuesses.length)}
+                        contentContainerStyle={styles.list} />
                 </View>
             </View>
 
@@ -113,7 +124,10 @@ const GameScreen = props => {
                 {/*<ScrollView contentContainerStyle={styles.list}>
                     {pastGuesses.map((guess, index) => renderListItem(guess, pastGuesses.length-index))}
     </ScrollView>*/}
-                <FlatList keyExtractor={(item) => item} data={pastGuesses} renderItem={renderListItem.bind(this, pastGuesses.length)} contentContainerStyle={styles.list} />
+                <FlatList keyExtractor={(item) => item}
+                    data={pastGuesses}
+                    renderItem={renderListItem.bind(this, pastGuesses.length)}
+                    contentContainerStyle={styles.list} />
             </View>
         </View>
     )

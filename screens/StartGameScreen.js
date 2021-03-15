@@ -1,5 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Button, TouchableWithoutFeedback, Keyboard, Alert, Dimensions, ScrollView, KeyboardAvoidingView } from 'react-native';
+import {
+    View,
+    StyleSheet,
+    Text,
+    Button,
+    TouchableWithoutFeedback,
+    Keyboard,
+    Alert,
+    Dimensions,
+    ScrollView,
+    KeyboardAvoidingView
+} from 'react-native';
 import Card from '../components/Card';
 import Colors from '../constants/colors';
 import Input from '../components/Input';
@@ -14,11 +25,6 @@ const StartGameScreen = props => {
     const [confirmed, setConfirmed] = useState(false);
     const [selectedNumber, setSelectedNumber] = useState();
     const [buttonWidth, setButtonWidth] = useState(Dimensions.get('window').width / 4);
-
-
-
-
-
 
     const numberInputHandler = inputText => {
         setEnteredValue(inputText.replace(/[^0-9]/g, ''));
@@ -73,7 +79,14 @@ const StartGameScreen = props => {
                         <TitleText style={styles.title}>Start a New Game!</TitleText>
                         <Card style={styles.inputContainer}>
                             <BodyText>Select a Number</BodyText>
-                            <Input style={styles.input} blurOnSubmit autoCapitalize='none' autoCorrect={false} keyboardType="number-pad" maxLength={2} onChangeText={numberInputHandler} value={enteredValue} />
+                            <Input style={styles.input}
+                                blurOnSubmit
+                                autoCapitalize='none'
+                                autoCorrect={false}
+                                keyboardType="number-pad"
+                                maxLength={2}
+                                onChangeText={numberInputHandler}
+                                value={enteredValue} />
                             <View style={styles.buttonContainer}>
                                 <View style={{ width: buttonWidth }}>
                                     <Button title="Reset" onPress={resetInputHandler} color={Colors.accent} />
